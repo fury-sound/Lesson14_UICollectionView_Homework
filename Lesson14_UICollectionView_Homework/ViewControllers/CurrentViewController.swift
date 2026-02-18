@@ -50,7 +50,6 @@ final class CurrentViewController: UIViewController {
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupViewProperties()
         setupSubviews()
         setupConstraints()
@@ -89,8 +88,6 @@ final class CurrentViewController: UIViewController {
         cellImageView.image = UIImage(systemName: model.imageURL)
     }
 
-    //    @objc private func didTapButton(){
-    //    }
 }
 
 #Preview {

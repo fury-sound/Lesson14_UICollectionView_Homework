@@ -11,7 +11,6 @@ final class CustomCellView: UICollectionViewCell {
 
     // MARK: - Properties
     static let identifier: String = "CustomCellView"
-//    private var customCellVM: CustomCellViewModel?
     private var itemIndex: Int?
     var likeButtonTapped: ((Int) -> Void)?
 
@@ -55,8 +54,7 @@ final class CustomCellView: UICollectionViewCell {
         let myImageView = UIImageView()
         myImageView.contentMode = .scaleAspectFill
         myImageView.clipsToBounds = true
-        //        myImageView.layer.cornerRadius = 10
-        myImageView.backgroundColor = .clear // .blue.withAlphaComponent(0.2)
+        myImageView.backgroundColor = .clear
         myImageView.tintColor = .red
         myImageView.image = UIImage(systemName: "heart")
         return myImageView
@@ -73,7 +71,6 @@ final class CustomCellView: UICollectionViewCell {
     }()
 
     // MARK: - Initializers
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewProperties()
@@ -93,8 +90,6 @@ final class CustomCellView: UICollectionViewCell {
         priceLabel.text = nil
         cellImageView.image = nil
         itemIndex = nil
-        //        cellBGColor = .clear
-        //        tempColor = .clear
     }
 
     // MARK: - Layout
@@ -145,19 +140,12 @@ final class CustomCellView: UICollectionViewCell {
         priceLabel.text = "$\(model.price)"
         cellImageView.image = UIImage(systemName: model.imageURL)
         likeImageView.image = (model.isLiked) ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-
-//        titleLabel.text = "After reuse"
-//        priceLabel.text = "$\(111.22)"
-//        cellImageView.image = UIImage(systemName: "photo")
     }
 
     @objc private func onLikeButtonTapped() {
-//        likeImageView.image = (likeImageView.image == UIImage(systemName: "heart")) ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         guard let index = itemIndex else { return }
         likeButtonTapped?(index)
-//        customCellVM.likeItem(at: index)
     }
-
 }
 
 #Preview {

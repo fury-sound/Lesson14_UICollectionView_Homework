@@ -22,5 +22,4 @@ final class CustomCellViewModel {
     func likeItem(at index: Int) {
         itemArray[index].isLiked.toggle()
     }
-
 }

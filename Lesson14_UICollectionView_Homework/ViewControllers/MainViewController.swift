@@ -34,7 +34,6 @@ final class MainViewController: UIViewController {
     private lazy var addButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("Добавить", for: .normal)
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = .systemBlue
         config.baseForegroundColor = .white
@@ -50,7 +49,6 @@ final class MainViewController: UIViewController {
     private lazy var favoriteButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("Избранное", for: .normal)
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = .systemBlue
         config.baseForegroundColor = .white
@@ -99,9 +97,7 @@ final class MainViewController: UIViewController {
     }
 
     @objc private func addButtonTapped() {
-//        print(#function)
         customCellVM.addItem(index: customCellVM.itemArray.count)
-//        print(customCellVM.itemArray.count)
         collectionView.reloadData()
     }
 
@@ -114,11 +110,8 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item \(indexPath.item) was selected")
         let currentVC = CurrentViewController()
         currentVC.configure(with: customCellVM.itemArray[indexPath.item])
-//        favoritesVC.viewModel.favoriteArray = customCellVM.itemArray.compactMap { $0.isLiked ? $0 : nil }
-////        print(favoritesVC.viewModel.favoriteArray)
         navigationController?.pushViewController(currentVC, animated: true)
     }
 }
@@ -130,12 +123,10 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCellView.identifier, for: indexPath) as? CustomCellView else { return UICollectionViewCell() }
-//        print(customCellVM.itemArray[indexPath.item])
         let itemIndex = indexPath.item
         cell.configure(itemIndex: itemIndex, with: customCellVM.itemArray[indexPath.item])
         cell.likeButtonTapped = { [weak self] value in
             guard let self else { return }
-//            print("like button tapped: \(value)")
             self.customCellVM.likeItem(at: value)
             collectionView.reloadItems(at: [IndexPath(item: value, section: 0)])
         }

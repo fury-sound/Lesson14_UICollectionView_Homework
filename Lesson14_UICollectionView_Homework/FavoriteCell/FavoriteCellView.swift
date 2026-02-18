@@ -10,7 +10,7 @@ import UIKit
 final class FavoriteCellView: UICollectionViewCell {
 
     // MARK: - Properties
-    static let favoriteIdentifier: String = "CustomCellView"
+    static let favoriteIdentifier: String = "favoriteCellView"
 
     // MARK: - Subviews
     private let titleLabel: UILabel = {
@@ -50,7 +50,6 @@ final class FavoriteCellView: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-
     // MARK: - Layout
     private func setupViewProperties(){
         contentView.backgroundColor = .systemGray2
@@ -75,21 +74,10 @@ final class FavoriteCellView: UICollectionViewCell {
         ])
     }
 
-//    func configure(itemIndex: Int, with model: FavoriteCellModel) {
     func configure(itemIndex: Int, with model: CustomCellModel) {
-//        self.itemIndex = itemIndex
         titleLabel.text = model.title
         cellImageView.image = UIImage(systemName: model.imageURL)
-        
-//        likeImageView.image = (model.isLiked) ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-
-        //        titleLabel.text = "After reuse"
-        //        priceLabel.text = "$\(111.22)"
-        //        cellImageView.image = UIImage(systemName: "photo")
     }
-
-    //    @objc private func didTapButton(){
-    //    }
 }
 
 #Preview {

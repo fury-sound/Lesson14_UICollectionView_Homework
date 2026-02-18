@@ -10,7 +10,6 @@ import UIKit
 final class FavoritesViewController: UIViewController {
 
     // MARK: - Properties
-    //    private var viewModel: FavoriteViewModelProtocol?
     var viewModel = FavoriteViewModel()
     private let padding: CGFloat = 8
 
@@ -50,7 +49,6 @@ final class FavoritesViewController: UIViewController {
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupViewProperties()
         setupSubviews()
         setupConstraints()
@@ -88,9 +86,6 @@ final class FavoritesViewController: UIViewController {
             ])
         }
     }
-
-    //    @objc private func didTapButton(){
-    //    }
 }
 
 extension FavoritesViewController: UICollectionViewDataSource {
@@ -112,10 +107,6 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         let actualItemHeight = actualItemWidth * 2
         return CGSize(width: actualItemWidth, height: actualItemHeight)
     }
-}
-
-extension FavoritesViewController: UICollectionViewDelegate {
-
 }
 
 #Preview {
